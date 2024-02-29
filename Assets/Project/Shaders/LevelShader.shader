@@ -10,7 +10,7 @@ Shader "Custom/Level" {
 
         Pass {
 
-            Tags { "LightMode" = "ForwardBase" }
+            Tags { "LightMode" = "ForwardBase" "Queue" = "AlphaTest"}
 
             CGPROGRAM
             #pragma vertex vert
@@ -49,6 +49,9 @@ Shader "Custom/Level" {
             }
 
             float4 frag(v2f i) : SV_Target{
+                float alpha = tex2D(_ShadowTex, i.uv).a;
+                clip(alpha - 0.8);
+
                 i.normal = normalize(i.normal);
                 
                 float3 viewDir = normalize(_WorldSpaceCameraPos - i.worldPos);
