@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.82639736, g: 0.82641506, b: 0.82173723, a: 1}
+  m_AmbientSkyColor: {r: 0.645283, g: 0.645283, b: 0.645283, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -1031,7 +1031,7 @@ Transform:
   m_GameObject: {fileID: 369482669}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4076, y: 0.12993, z: 7.08}
+  m_LocalPosition: {x: 2.4076, y: 1.497, z: 7.08}
   m_LocalScale: {x: 6.3569875, y: 5.149945, z: 0.16716792}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1713,7 +1713,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.9935732, b: 0.8886792, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1772,7 +1772,7 @@ Transform:
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
   m_LocalRotation: {x: 0.64324766, y: -0.42192763, z: -0.11108356, w: 0.629182}
-  m_LocalPosition: {x: 4.181, y: 3, z: 0.618}
+  m_LocalPosition: {x: 4.181, y: 3, z: 13.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2086,7 +2086,7 @@ GameObject:
   - component: {fileID: 933995892}
   - component: {fileID: 933995891}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2675,6 +2675,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.43598, y: 3.9999998, z: 1.980724}
   m_Center: {x: 0.21799004, y: 0.99999994, z: -0.009637981}
+--- !u!1 &1307844729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3532395567293103483, guid: b8ea8a981dd464b479596245f9f050ae, type: 3}
+  m_PrefabInstance: {fileID: 8346543665690265929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1307844733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307844729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c237e096b275614faed0e75c93e65f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashlight: {fileID: 933995891}
 --- !u!1001 &1375128275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3925,18 +3943,18 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908107854}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.028301716, b: 0.028301716, a: 1}
-  m_Intensity: 1.07
-  m_Range: 4.49
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 95.76
+  m_Range: 4.56
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3989,7 +4007,7 @@ Transform:
   m_GameObject: {fileID: 1908107854}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.704, y: 1.673, z: 0.051}
+  m_LocalPosition: {x: 2.294, y: 2.945, z: 5.986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4481,6 +4499,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3885202430437075242, guid: b8ea8a981dd464b479596245f9f050ae, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885202430437075242, guid: b8ea8a981dd464b479596245f9f050ae, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4383270793465206661, guid: b8ea8a981dd464b479596245f9f050ae, type: 3}
       propertyPath: speed
       value: 5
@@ -4531,7 +4557,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2796035759195684966, guid: b8ea8a981dd464b479596245f9f050ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 933995892}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3532395567293103483, guid: b8ea8a981dd464b479596245f9f050ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1307844733}
   m_SourcePrefab: {fileID: 100100000, guid: b8ea8a981dd464b479596245f9f050ae, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

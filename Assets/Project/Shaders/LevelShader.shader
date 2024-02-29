@@ -121,8 +121,9 @@ Shader "Custom/Level" {
                 UNITY_LIGHT_ATTENUATION(attenuation, i, i.worldPos);
                 float lambert = saturate(dot(lightDir, i.normal));
                 float shadowMask = saturate(attenuation * (lambert > 0.01) * lightColor);
+                shadowMask = (shadowMask > 0.5);
 
-                float3 color = tex2D(_LightTex, i.uv) * shadowMask + tex2D(_ShadowTex, i.uv) * (1 - shadowMask);
+                float3 color = tex2D(_LightTex, i.uv) * shadowMask;
 
                 return float4(color, shadowMask.x);
             }
