@@ -157,7 +157,8 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Standalone: com.DefaultCompany.Acerola-Jam-0
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -673,8 +674,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Acerola Jam 0
-  metroPackageVersion: 
+  metroPackageName: AcerolaJam0
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -682,7 +683,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Acerola Jam 0
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Acerola Jam 0
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
