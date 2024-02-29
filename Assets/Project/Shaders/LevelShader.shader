@@ -60,6 +60,8 @@ Shader "Custom/Level" {
                 float shadowMask = saturate(attenuation * lambert);
                 
                 float3 color = tex2D(_LightTex, i.uv) * shadowMask + tex2D(_ShadowTex, i.uv) * (1- shadowMask);
+                float3 ambient = (unity_SHAr.w, unity_SHAg.w, unity_SHAb.w);
+                color *= ambient;
 
                 return float4(color, 1.0);
             }
