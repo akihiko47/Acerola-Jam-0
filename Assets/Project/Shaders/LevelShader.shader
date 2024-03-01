@@ -2,6 +2,8 @@ Shader "Custom/Level" {
 
     Properties{
         _Twist ("Twist", float) = 0.2
+        _Color1 ("Color 1", Color) = (0.5, 0.5, 0.5, 1.0)
+        _Color2 ("Color 2", Color) = (0.9, 0.9, 0.9, 1.0)
         [NoScaleOffset] _LightTex ("Main Texture", 2D) = "white" {}
         [NoScaleOffset] _ShadowTex ("No Light Texture", 2D) = "white" {}
     }
@@ -16,7 +18,7 @@ Shader "Custom/Level" {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #pragma multi_compile_fwdadd_fullshadows
+            //#pragma multi_compile_fwdadd_fullshadows
 
             #include "UnityCG.cginc"
             #include "AutoLight.cginc"
@@ -24,6 +26,7 @@ Shader "Custom/Level" {
 
             sampler2D _LightTex;
             sampler2D _ShadowTex;
+            float4 _Color1, _Color2;
             float _Twist;
 
             struct MeshData {
@@ -57,7 +60,7 @@ Shader "Custom/Level" {
             v2f vert (MeshData v) {
                 v2f o;
                 o.worldPos = mul(unity_ObjectToWorld, v.vertex);
-                o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14 / 100 * o.worldPos.y * _Twist);
+                o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14 / 100 * o.worldPos.y * _Twist * sin(_Time.y * 0.5));
                 o.pos = mul(UNITY_MATRIX_VP, float4(o.worldPos, 1));
                 o.uv = v.uv;
                 o.normal = UnityObjectToWorldNormal(v.normal);
@@ -75,13 +78,18 @@ Shader "Custom/Level" {
                 float3 lightDir = _WorldSpaceLightPos0.xyz;
                 float3 lightColor = _LightColor0;
 
-                UNITY_LIGHT_ATTENUATION(attenuation, i, i.worldPos);
-                float lambert = saturate(dot(lightDir, i.normal));
-                float shadowMask = saturate(attenuation * lambert);
-                
-                float3 color = tex2D(_LightTex, i.uv) * shadowMask + tex2D(_ShadowTex, i.uv) * (1- shadowMask);
+                float3 albedo = tex2D(_ShadowTex, i.uv);
                 float3 ambient = (unity_SHAr.w, unity_SHAg.w, unity_SHAb.w);
-                color *= ambient;
+
+                float lambert = saturate(dot(lightDir, i.normal));
+                //return float4(lambert.xxx, 1.0);
+                //float shadowMask = saturate(attenuation * lambert);
+                
+                float3 diffuse = lambert * lightColor.rgb;
+                diffuse += ambient;
+
+                float3 color = albedo * diffuse;
+                //float3 color = _Color1 * shadowMask + _Color2 * (1- shadowMask);
 
                 return float4(color, 1.0);
             }
@@ -107,6 +115,7 @@ Shader "Custom/Level" {
 
             sampler2D _LightTex;
             sampler2D _ShadowTex;
+            float4 _Color1, _Color2;
             float _Twist;
 
             struct MeshData {
@@ -140,7 +149,7 @@ Shader "Custom/Level" {
             v2f vert(MeshData v) {
                 v2f o;
                 o.worldPos = mul(unity_ObjectToWorld, v.vertex);
-                o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14 / 100 * o.worldPos.y * _Twist);
+                o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14 / 100 * o.worldPos.y * _Twist *sin(_Time.y * 0.5));
                 o.pos = mul(UNITY_MATRIX_VP, float4(o.worldPos, 1));
                 o.uv = v.uv;
                 o.normal = UnityObjectToWorldNormal(v.normal);
@@ -160,6 +169,7 @@ Shader "Custom/Level" {
                 shadowMask = (shadowMask > 0.5);
 
                 float3 color = tex2D(_LightTex, i.uv) * shadowMask;
+                //float3 color = _Color1 * shadowMask;
 
                 return float4(color, shadowMask.x);
             }
