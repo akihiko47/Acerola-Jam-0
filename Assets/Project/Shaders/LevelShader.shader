@@ -1,6 +1,7 @@
 Shader "Custom/Level" {
 
-    Properties {
+    Properties{
+        _Twist ("Twist", float) = 0.2
         [NoScaleOffset] _LightTex ("Main Texture", 2D) = "white" {}
         [NoScaleOffset] _ShadowTex ("No Light Texture", 2D) = "white" {}
     }
@@ -10,7 +11,7 @@ Shader "Custom/Level" {
 
         Pass {
 
-            Tags { "LightMode" = "ForwardBase" "Queue" = "AlphaTest"}
+            Tags { "LightMode" = "ForwardBase" }
 
             CGPROGRAM
             #pragma vertex vert
@@ -23,6 +24,7 @@ Shader "Custom/Level" {
 
             sampler2D _LightTex;
             sampler2D _ShadowTex;
+            float _Twist;
 
             struct MeshData {
                 float4 vertex : POSITION;
@@ -35,16 +37,31 @@ Shader "Custom/Level" {
                 float3 normal : TEXCOORD1;
                 float3 worldPos : TEXCOORD2;
                 float4 pos : SV_POSITION;
-                SHADOW_COORDS(5)
+                //SHADOW_COORDS(5)
             };
+
+            float3 Unity_RotateAboutAxis_Radians_float(float3 In, float3 Axis, float Rotation) {
+                float s = sin(Rotation);
+                float c = cos(Rotation);
+                float one_minus_c = 1.0 - c;
+
+                Axis = normalize(Axis);
+                float3x3 rot_mat =
+                { one_minus_c * Axis.x * Axis.x + c, one_minus_c * Axis.x * Axis.y - Axis.z * s, one_minus_c * Axis.z * Axis.x + Axis.y * s,
+                    one_minus_c * Axis.x * Axis.y + Axis.z * s, one_minus_c * Axis.y * Axis.y + c, one_minus_c * Axis.y * Axis.z - Axis.x * s,
+                    one_minus_c * Axis.z * Axis.x - Axis.y * s, one_minus_c * Axis.y * Axis.z + Axis.x * s, one_minus_c * Axis.z * Axis.z + c
+                };
+                return mul(rot_mat, In);
+            }
 
             v2f vert (MeshData v) {
                 v2f o;
-                o.pos = UnityObjectToClipPos(v.vertex);
                 o.worldPos = mul(unity_ObjectToWorld, v.vertex);
+                o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14 / 100 * o.worldPos.y * _Twist);
+                o.pos = mul(UNITY_MATRIX_VP, float4(o.worldPos, 1));
                 o.uv = v.uv;
                 o.normal = UnityObjectToWorldNormal(v.normal);
-                TRANSFER_SHADOW(o);
+                //TRANSFER_SHADOW(o);
                 return o;
             }
 
@@ -90,6 +107,7 @@ Shader "Custom/Level" {
 
             sampler2D _LightTex;
             sampler2D _ShadowTex;
+            float _Twist;
 
             struct MeshData {
                 float4 vertex : POSITION;
@@ -102,16 +120,31 @@ Shader "Custom/Level" {
                 float3 normal : TEXCOORD1;
                 float3 worldPos : TEXCOORD2;
                 float4 pos : SV_POSITION;
-                SHADOW_COORDS(5)
+                //SHADOW_COORDS(5)
             };
+
+            float3 Unity_RotateAboutAxis_Radians_float(float3 In, float3 Axis, float Rotation) {
+                float s = sin(Rotation);
+                float c = cos(Rotation);
+                float one_minus_c = 1.0 - c;
+
+                Axis = normalize(Axis);
+                float3x3 rot_mat =
+                { one_minus_c * Axis.x * Axis.x + c, one_minus_c * Axis.x * Axis.y - Axis.z * s, one_minus_c * Axis.z * Axis.x + Axis.y * s,
+                    one_minus_c * Axis.x * Axis.y + Axis.z * s, one_minus_c * Axis.y * Axis.y + c, one_minus_c * Axis.y * Axis.z - Axis.x * s,
+                    one_minus_c * Axis.z * Axis.x - Axis.y * s, one_minus_c * Axis.y * Axis.z + Axis.x * s, one_minus_c * Axis.z * Axis.z + c
+                };
+                return mul(rot_mat, In);
+            }
 
             v2f vert(MeshData v) {
                 v2f o;
-                o.pos = UnityObjectToClipPos(v.vertex);
                 o.worldPos = mul(unity_ObjectToWorld, v.vertex);
+                o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14 / 100 * o.worldPos.y * _Twist);
+                o.pos = mul(UNITY_MATRIX_VP, float4(o.worldPos, 1));
                 o.uv = v.uv;
                 o.normal = UnityObjectToWorldNormal(v.normal);
-                TRANSFER_SHADOW(o);
+                //TRANSFER_SHADOW(o);
                 return o;
             }
 
@@ -133,7 +166,7 @@ Shader "Custom/Level" {
             ENDCG
         }
 
-        Pass{
+       /* Pass{
             Tags {
                 "LightMode" = "ShadowCaster"
             }
@@ -148,10 +181,26 @@ Shader "Custom/Level" {
 
             #include "UnityCG.cginc"
 
+            float _Twist;
+
             struct MeshData {
                 float4 position : POSITION;
                 float3 normal : NORMAL;
             };
+
+            float3 Unity_RotateAboutAxis_Radians_float(float3 In, float3 Axis, float Rotation) {
+                float s = sin(Rotation);
+                float c = cos(Rotation);
+                float one_minus_c = 1.0 - c;
+
+                Axis = normalize(Axis);
+                float3x3 rot_mat =
+                { one_minus_c * Axis.x * Axis.x + c, one_minus_c * Axis.x * Axis.y - Axis.z * s, one_minus_c * Axis.z * Axis.x + Axis.y * s,
+                    one_minus_c * Axis.x * Axis.y + Axis.z * s, one_minus_c * Axis.y * Axis.y + c, one_minus_c * Axis.y * Axis.z - Axis.x * s,
+                    one_minus_c * Axis.z * Axis.x - Axis.y * s, one_minus_c * Axis.y * Axis.z + Axis.x * s, one_minus_c * Axis.z * Axis.z + c
+                };
+                return mul(rot_mat, In);
+            }
 
             #ifdef SHADOWS_CUBE
                 struct Interpolators {
@@ -173,6 +222,9 @@ Shader "Custom/Level" {
                 }
             #else
                 float4 vert(MeshData v) : SV_POSITION{
+                    float3 worldPos = mul(unity_ObjectToWorld, v.position);
+                    worldPos = Unity_RotateAboutAxis_Radians_float(worldPos, float3(0.0, 1.0, 0.0), 3.14 / 100 * worldPos.y * _Twist);
+                    v.position.xyz = mul(worldPos.xyz, unity_ObjectToWorld);
                     float4 position = UnityClipSpaceShadowCasterPos(v.position.xyz, v.normal);
                     return UnityApplyLinearShadowBias(position);
                 }
@@ -183,6 +235,6 @@ Shader "Custom/Level" {
             #endif
 
             ENDCG
-        }
+        }*/
     }
 }
