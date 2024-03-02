@@ -9,6 +9,7 @@ sampler2D _LightTex;
 sampler2D _ShadowTex;
 float4 _Color1, _Color2;
 float _Twist;
+uniform float _PlayerY;
 
 struct MeshData {
     float4 vertex : POSITION;
@@ -42,7 +43,9 @@ float3 Unity_RotateAboutAxis_Radians_float(float3 In, float3 Axis, float Rotatio
 v2f vert(MeshData v) {
     v2f o;
     o.worldPos = mul(unity_ObjectToWorld, v.vertex);
-    //o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14 / 100 * o.worldPos.y * _Twist * sin(_Time.y * 0.5));
+
+    //o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14159265359 / 100 * (o.worldPos.y - _PlayerY) * _Twist * sin(_Time.y / 10.0));
+
     o.pos = mul(UNITY_MATRIX_VP, float4(o.worldPos, 1));
     o.uv = v.uv;
     o.normal = UnityObjectToWorldNormal(v.normal);

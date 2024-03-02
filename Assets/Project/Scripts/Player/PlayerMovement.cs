@@ -38,11 +38,12 @@ public class PlayerMovement : MonoBehaviour {
 
         ConfigureInput();
 
-        if (Input.GetButtonDown("Jump") && onGround) {
+        if (Input.GetKey(KeyCode.Space) && onGround) {
             Jump();
         }
 
         ApplyGravity();
+        ConfigureTwist();
     }
 
     private void ConfigureInput() {
@@ -54,6 +55,10 @@ public class PlayerMovement : MonoBehaviour {
             move = move.normalized;
         }
         controller.Move(move * speed * Time.deltaTime);
+    }
+
+    private void ConfigureTwist() {
+        Shader.SetGlobalFloat("_PlayerY", transform.position.y);
     }
 
     private void ApplyGravity() {
