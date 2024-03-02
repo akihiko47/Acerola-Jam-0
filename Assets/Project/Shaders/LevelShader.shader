@@ -60,7 +60,7 @@ Shader "Custom/Level" {
             v2f vert (MeshData v) {
                 v2f o;
                 o.worldPos = mul(unity_ObjectToWorld, v.vertex);
-                o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14 / 100 * o.worldPos.y * _Twist * sin(_Time.y * 0.5));
+                //o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14 / 100 * o.worldPos.y * _Twist * sin(_Time.y * 0.5));
                 o.pos = mul(UNITY_MATRIX_VP, float4(o.worldPos, 1));
                 o.uv = v.uv;
                 o.normal = UnityObjectToWorldNormal(v.normal);
@@ -149,7 +149,7 @@ Shader "Custom/Level" {
             v2f vert(MeshData v) {
                 v2f o;
                 o.worldPos = mul(unity_ObjectToWorld, v.vertex);
-                o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14 / 100 * o.worldPos.y * _Twist *sin(_Time.y * 0.5));
+                //o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14 / 100 * o.worldPos.y * _Twist *sin(_Time.y * 0.5));
                 o.pos = mul(UNITY_MATRIX_VP, float4(o.worldPos, 1));
                 o.uv = v.uv;
                 o.normal = UnityObjectToWorldNormal(v.normal);

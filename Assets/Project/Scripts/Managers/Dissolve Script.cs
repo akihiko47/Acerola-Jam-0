@@ -14,4 +14,12 @@ public class DissolveScript : MonoBehaviour {
         }
 
     }
+
+    public void SetDissolveColliders(bool active) {
+        objects = GameObject.FindGameObjectsWithTag("Dissolve");
+
+        foreach (GameObject obj in objects) {
+            obj.GetComponent<Collider>().enabled = active;
+        }
+    }
 }
