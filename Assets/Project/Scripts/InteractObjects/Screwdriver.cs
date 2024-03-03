@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Key : MonoBehaviour, IInteractable {
+public class Screwdriver : MonoBehaviour, IInteractable, IPickAble {
 
     private bool canInteract = true;
 
     public void OnInteract() {
-        Debug.Log("Interaction");
         Destroy(gameObject);
     }
 
@@ -16,6 +15,10 @@ public class Key : MonoBehaviour, IInteractable {
     }
 
     public string GetMessage() {
-        return "This key can help me to get out!";
+        return "This is a screwdriver";
+    }
+
+    public Item GetItem() {
+        return new Item { itemType = Item.ItemType.Screwdriver };
     }
 }
