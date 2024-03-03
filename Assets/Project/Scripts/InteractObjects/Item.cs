@@ -9,6 +9,7 @@ public class Item {
         Screwdriver,
         Batteries,
         Stick,
+        Fuse,
     }
 
     public ItemType itemType;
