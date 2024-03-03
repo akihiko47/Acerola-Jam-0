@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour {
     private float jumpHeight = 1f;
 
     [SerializeField]
+    private bool canJump = true;
+
+    [SerializeField]
     private Transform groundCheck;
 
     [SerializeField]
@@ -38,7 +41,7 @@ public class PlayerMovement : MonoBehaviour {
 
         ConfigureInput();
 
-        if (Input.GetKey(KeyCode.Space) && onGround) {
+        if (Input.GetKey(KeyCode.Space) && onGround && canJump) {
             Jump();
         }
 

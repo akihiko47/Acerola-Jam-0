@@ -49,7 +49,7 @@ Shader "Custom/Level" {
             ENDCG
         }
 
-       /* Pass{
+       Pass{
             Tags {
                 "LightMode" = "ShadowCaster"
             }
@@ -118,6 +118,6 @@ Shader "Custom/Level" {
             #endif
 
             ENDCG
-        }*/
+        }
     }
 }

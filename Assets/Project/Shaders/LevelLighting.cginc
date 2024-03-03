@@ -88,9 +88,11 @@ float4 frag(v2f i) : SV_Target{
         float3 lightColor = _LightColor0;
 
         UNITY_LIGHT_ATTENUATION(attenuation, i, i.worldPos);
+
+        float lambert = saturate(dot(lightDir, i.normal));
         
-        float shadowMask = saturate(attenuation * lightColor);
-        shadowMask = (shadowMask > 0.5);
+        float shadowMask = saturate(attenuation * lightColor * (lambert > 0.0));
+        shadowMask = (shadowMask > 0.1);
 
         float3 color = tex2D(_LightTex, i.uv) * shadowMask;
         //float3 color = _Color1 * shadowMask;
