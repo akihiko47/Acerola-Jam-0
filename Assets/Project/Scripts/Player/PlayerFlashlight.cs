@@ -6,33 +6,33 @@ public class PlayerFlashlight : MonoBehaviour {
     private Light flashlight;
 
     [SerializeField]
+    private float decreaseSpeed = 1f;
+
+    [SerializeField]
+    private float clickGain = 5f;
+
+    [SerializeField]
     DissolveScript dissolveScript;
 
-    private bool transition = false;
-    private float t = 0f;
+    private float maxIntensity;
 
-    private Color targetColor = Color.black;
+
+    private void Start() {
+        maxIntensity = flashlight.intensity;
+    }
 
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            if (targetColor == Color.white) {
-                targetColor = Color.black;
-                dissolveScript.SetDissolveColliders(false);
-            } else if (targetColor == Color.black) {
-                targetColor = Color.white;
-                dissolveScript.SetDissolveColliders(true);
+            flashlight.intensity += clickGain;
+            if (flashlight.intensity > maxIntensity) {
+                flashlight.intensity = maxIntensity;
             }
-            t = 0f;
-            transition = true;
         }
 
-        if (transition) {
-            t += Time.deltaTime;
-            flashlight.color = Color.Lerp(flashlight.color, targetColor, t);
-
-            if (t > 0.95) {
-                t = 1f;
-                transition = false;
+        if (flashlight.intensity > 0) {
+            flashlight.intensity -= decreaseSpeed;
+            if (flashlight.intensity < 0f) {
+                flashlight.intensity = 0f;
             }
         }
     }
