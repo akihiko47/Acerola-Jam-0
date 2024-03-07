@@ -25,4 +25,8 @@ public class PlayerCamera : MonoBehaviour {
         playerTransform.Rotate(Vector3.up * mouseX);
     }
 
+    public void SetSensitivity(float newSens) {
+        mouseSensitivity = newSens;
+    }
+
 }

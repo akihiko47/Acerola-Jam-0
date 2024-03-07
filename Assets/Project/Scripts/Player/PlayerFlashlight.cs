@@ -23,14 +23,14 @@ public class PlayerFlashlight : MonoBehaviour {
 
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            flashlight.intensity += clickGain;
+            flashlight.intensity += clickGain * Time.deltaTime;
             if (flashlight.intensity > maxIntensity) {
                 flashlight.intensity = maxIntensity;
             }
         }
 
         if (flashlight.intensity > 0) {
-            flashlight.intensity -= decreaseSpeed;
+            flashlight.intensity -= decreaseSpeed * Time.deltaTime;
             if (flashlight.intensity < 0f) {
                 flashlight.intensity = 0f;
             }
