@@ -57,6 +57,11 @@ public class PlayerMovement : MonoBehaviour {
         if (move.magnitude > 1f) {
             move = move.normalized;
         }
+
+        if (move.magnitude > 0) {
+            SoundManager.PlaySound(SoundManager.Sound.step);
+        }
+
         controller.Move(move * speed * Time.deltaTime);
     }
 
