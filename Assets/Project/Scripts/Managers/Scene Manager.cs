@@ -14,6 +14,7 @@ public class ScenesManager : MonoBehaviour {
 
     public enum Scene {
         MainMenu,
+        Intro,
         MainScene,
     }
 
