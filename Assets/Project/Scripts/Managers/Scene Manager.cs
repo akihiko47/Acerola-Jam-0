@@ -42,6 +42,10 @@ public class ScenesManager : MonoBehaviour {
         LoadScene((Scene)(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
+    public void RestartScene() {
+        LoadScene((Scene)(SceneManager.GetActiveScene().buildIndex));
+    }
+
     public void LoadMainMenu() {
         LoadScene(Scene.MainMenu);
     }
