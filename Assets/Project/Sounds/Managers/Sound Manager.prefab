@@ -62,17 +62,24 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   - sound: 2
-    audioClip: {fileID: 8300000, guid: 123fd15bd48cf314b8dd3e1b7ac01b43, type: 3}
+    audioClip: {fileID: 8300000, guid: aa0ee064069d91040bf87205bfc133b6, type: 3}
     playDelay: 0
-    audioMixer: {fileID: 49775197578996511, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
-    volume: 1
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.5
     pitch: 1
-    loop: 1
+    loop: 0
   - sound: 3
     audioClip: {fileID: 8300000, guid: 123fd15bd48cf314b8dd3e1b7ac01b43, type: 3}
     playDelay: 0
     audioMixer: {fileID: 49775197578996511, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
-    volume: 1
+    volume: 0.1
+    pitch: 1
+    loop: 1
+  - sound: 4
+    audioClip: {fileID: 8300000, guid: 123fd15bd48cf314b8dd3e1b7ac01b43, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: 49775197578996511, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.1
     pitch: 1
     loop: 1
 --- !u!114 &86646750305342800
@@ -87,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6093b3e6ceec73419726d5defd0824d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicList: 0200000003000000
+  musicList: 0300000004000000
 --- !u!82 &4903789565277301324
 AudioSource:
   m_ObjectHideFlags: 0

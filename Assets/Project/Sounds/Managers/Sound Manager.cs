@@ -8,6 +8,7 @@ public static class SoundManager {
     public enum Sound {
         buttonClick,
         step,
+        boom,
         musicMainMenu,
         musicMainScene,
     }

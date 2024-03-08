@@ -25,6 +25,7 @@ public class UIMainMenu : MonoBehaviour {
     public void StartNewGame() {
         MusicManager.Instance.StopMusic();
         SoundManager.PlaySound(SoundManager.Sound.buttonClick);
+        SoundManager.PlaySound(SoundManager.Sound.boom);
         ScenesManager.Instance.LoadNextScene();
     }
 

@@ -10,6 +10,9 @@ public class UIInGame : MonoBehaviour {
     private GameObject SettingsPanel;
 
     [SerializeField]
+    private GameObject TutorialPanel;
+
+    [SerializeField]
     private AudioMixer masterMixer;
 
     void Awake() {
@@ -21,6 +24,10 @@ public class UIInGame : MonoBehaviour {
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape) && !SettingsPanel.activeSelf) {
             ActivateSettingsPanel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && TutorialPanel.activeSelf) {
+            DeactivateTutorialPanel();
         }
     }
 
@@ -36,6 +43,10 @@ public class UIInGame : MonoBehaviour {
         SoundManager.PlaySound(SoundManager.Sound.buttonClick);
         SettingsPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void DeactivateTutorialPanel() {
+        TutorialPanel.SetActive(false);
     }
 
     public void SetMusicVolume (float volume) {
