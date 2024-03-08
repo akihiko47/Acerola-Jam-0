@@ -14,6 +14,7 @@ public class GarageDoor : MonoBehaviour, IInteractable, IItemNeeder {
 
     public void OnInteract() {
         playerFlashlight.SetWorking(false);
+        playerFlashlight.HalfIntensity();
         doorVFX.Rotate(new Vector3(0f, -75f, 0f));
         Destroy(gameObject);
     }

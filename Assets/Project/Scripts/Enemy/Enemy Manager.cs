@@ -13,11 +13,18 @@ public class EnemyManager : MonoBehaviour {
     [SerializeField]
     Light lamp;
 
+    private bool lightsOn = false;
+
     private bool isAttacking = false;
 
     private GameObject enemy;
 
     private void Update() {
+        if (lightsOn) {
+            return;
+        }
+
+
         float lampDist = (lamp.transform.position - playerFlashlight.transform.position).magnitude;
         bool playerNearLamp = (lampDist <= lamp.range) && lamp.enabled;
 
@@ -34,9 +41,13 @@ public class EnemyManager : MonoBehaviour {
         enemy.GetComponent<EnemyScript>().SetTarget(playerFlashlight.transform);
     }
 
-    private void StopAttack() {
+    public void StopAttack() {
         isAttacking = false;
         Destroy(enemy);
+    }
+
+    public void SetLightsOn(bool value) {
+        lightsOn = value;
     }
 
 }

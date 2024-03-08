@@ -53,7 +53,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.2835405, y: 2.2835405, z: 2.2835405}
+  m_Size: {x: 3.778158, y: 3.778158, z: 3.778158}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &6014912198420541778
 AudioSource:
@@ -126,7 +126,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.047222223
+      value: 0.11666667
       inSlope: 0
       outSlope: 0
       tangentMode: 0

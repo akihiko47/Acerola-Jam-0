@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour {
     
     public void Death() {
+        GetComponent<PlayerMovement>().enabled = false;
         ScenesManager.Instance.RestartScene();
     }
 

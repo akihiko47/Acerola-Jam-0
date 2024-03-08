@@ -46,4 +46,8 @@ public class PlayerFlashlight : MonoBehaviour {
     public bool GetWorking() {
         return isWorking;
     }
+
+    public void HalfIntensity() {
+        flashlight.intensity *= 0.2f;
+    }
 }
