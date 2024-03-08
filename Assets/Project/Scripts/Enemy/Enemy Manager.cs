@@ -10,14 +10,20 @@ public class EnemyManager : MonoBehaviour {
     [SerializeField]
     Light playerFlashlight;
 
+    [SerializeField]
+    Light lamp;
+
     private bool isAttacking = false;
 
     private GameObject enemy;
 
     private void Update() {
-        if (playerFlashlight.intensity <= 0.01 && !isAttacking) {
+        float lampDist = (lamp.transform.position - playerFlashlight.transform.position).magnitude;
+        bool playerNearLamp = (lampDist <= lamp.range) && lamp.enabled;
+
+        if (playerFlashlight.intensity <= 0.01 && !isAttacking && !playerNearLamp) {
             StartAttack();
-        } else if (playerFlashlight.intensity > 0.01 && isAttacking) {
+        } else if ((playerFlashlight.intensity > 0.01 && isAttacking) || (playerNearLamp && isAttacking)) {
             StopAttack();
         }
     }

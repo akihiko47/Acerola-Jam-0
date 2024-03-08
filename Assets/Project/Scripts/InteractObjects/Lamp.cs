@@ -7,7 +7,21 @@ public class Lamp : MonoBehaviour, IInteractable, IItemNeeder {
     [SerializeField]
     private Light lampLight;
 
+    [SerializeField]
+    private PlayerFlashlight playerFlashlight;
+
     private bool canInteract = true;
+
+    private void Update() {
+        if (playerFlashlight.GetWorking() == false) {
+            float lampDist = (transform.position - playerFlashlight.transform.position).magnitude;
+            bool playerNearLamp = (lampDist <= lampLight.range) && lampLight.enabled;
+
+            if (playerNearLamp) {
+                playerFlashlight.SetWorking(true);
+            }
+        }
+    }
 
     public void OnInteract() {
         lampLight.enabled = true;

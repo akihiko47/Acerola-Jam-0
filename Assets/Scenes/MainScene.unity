@@ -1078,6 +1078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lampLight: {fileID: 1154126558}
+  playerFlashlight: {fileID: 1307844733}
 --- !u!65 &80965654
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4509,6 +4510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 9138662976509268413, guid: ad439bf503568a948a69b819b8bc24aa, type: 3}
   playerFlashlight: {fileID: 933995891}
+  lamp: {fileID: 1154126558}
 --- !u!1 &437554226
 GameObject:
   m_ObjectHideFlags: 0
@@ -10745,7 +10747,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066108979}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -11402,7 +11404,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 3.71
-  m_Range: 9.28
+  m_Range: 4.79
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -15954,6 +15956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorVFX: {fileID: 783835634}
+  playerFlashlight: {fileID: 1307844733}
 --- !u!65 &1526781117
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17916,7 +17919,7 @@ Transform:
   m_GameObject: {fileID: 1716147330}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.06, y: -1.42, z: -0.27}
+  m_LocalPosition: {x: 0.06, y: -3.47, z: -0.27}
   m_LocalScale: {x: 3.3333333, y: 3.3333333, z: 3.3333333}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17929,7 +17932,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716147330}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -20886,7 +20889,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105414221}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0

@@ -7,9 +7,13 @@ public class GarageDoor : MonoBehaviour, IInteractable, IItemNeeder {
     [SerializeField]
     private Transform doorVFX;
 
+    [SerializeField]
+    private PlayerFlashlight playerFlashlight;
+
     private bool canInteract = true;
 
     public void OnInteract() {
+        playerFlashlight.SetWorking(false);
         doorVFX.Rotate(new Vector3(0f, -75f, 0f));
         Destroy(gameObject);
     }

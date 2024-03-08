@@ -16,13 +16,15 @@ public class PlayerFlashlight : MonoBehaviour {
 
     private float maxIntensity;
 
+    private bool isWorking = true;
+
 
     private void Start() {
         maxIntensity = flashlight.intensity;
     }
 
     void Update() {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && isWorking) {
             flashlight.intensity += clickGain * Time.deltaTime;
             if (flashlight.intensity > maxIntensity) {
                 flashlight.intensity = maxIntensity;
@@ -35,5 +37,13 @@ public class PlayerFlashlight : MonoBehaviour {
                 flashlight.intensity = 0f;
             }
         }
+    }
+
+    public void SetWorking(bool state) {
+        isWorking = state;
+    }
+
+    public bool GetWorking() {
+        return isWorking;
     }
 }
