@@ -38,7 +38,7 @@ public class Panel : MonoBehaviour, IInteractable, IItemNeeder {
     }
 
     public string GetMessage() {
-        return "My father told me that i need something to make this thing work";
+        return "This is electric panel. My father told me that i need something to make this thing work";
     }
 
     public Item GetNeededItem() {

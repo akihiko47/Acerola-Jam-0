@@ -337,15 +337,15 @@ MonoBehaviour:
   skipObject: {fileID: 727999771}
   outro: 0
   textMessagesArray:
-  - message: Bye, sweetie
+  - message: 'Mom: Bye, sweetie'
     messageSound: 10
-  - message: We'll be back by tomorrow morning
+  - message: 'Mom: We''ll be back by tomorrow morning'
     messageSound: 10
-  - message: We know you're afraid of the dark, so we left the lights on
+  - message: 'Dad: We know you''re afraid of the dark, so we left the lights on'
     messageSound: 11
-  - message: If anything happens, you always have a lamp next to your bed
+  - message: 'Dad: If anything happens, you always have a lamp next to your bed'
     messageSound: 11
-  - message: Have a good night
+  - message: 'Mom: Have a good night'
     messageSound: 10
 --- !u!1 &666486723
 GameObject:

@@ -15,7 +15,7 @@ public class Key : MonoBehaviour, IInteractable, IPickAble {
     }
 
     public string GetMessage() {
-        return "This key can help me to get out!";
+        return "It's a key to something";
     }
 
     public Item GetItem() {
