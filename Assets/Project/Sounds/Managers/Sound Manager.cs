@@ -9,8 +9,21 @@ public static class SoundManager {
         buttonClick,
         step,
         boom,
+        flashlightCharge,
+        flashlightBreak,
+        flashlightBrokenCharge,
+        death,
+        itemPickup,
+        itemUse,
+        lampsChangeState,
+        momSpeak,
+        dadSpeak,
+        meSpeak,
+        bedStandUp,
         musicMainMenu,
+        musicIntro,
         musicMainScene,
+        doorOpen,
     }
 
     private static GameObject oneShotGameObject;

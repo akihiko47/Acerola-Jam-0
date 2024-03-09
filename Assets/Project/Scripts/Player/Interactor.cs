@@ -62,6 +62,7 @@ public class Interactor : MonoBehaviour {
                         if (inventory.IsInInventory(neededItem)) {
                             inventory.AddItem(pickable.GetItem());
                             inventory.RemoveItem(neededItem);
+                            SoundManager.PlaySound(SoundManager.Sound.itemPickup);
                             interactObj.OnInteract();
                         }
 
@@ -72,6 +73,7 @@ public class Interactor : MonoBehaviour {
                         //  interact only if player has item
                         if (inventory.IsInInventory(neededItem)) {
                             inventory.RemoveItem(neededItem);
+                            SoundManager.PlaySound(SoundManager.Sound.itemUse);
                             interactObj.OnInteract();
                         }
 
@@ -79,11 +81,13 @@ public class Interactor : MonoBehaviour {
                         //  if object can be picked up
 
                         inventory.AddItem(pickable.GetItem());
+                        SoundManager.PlaySound(SoundManager.Sound.itemPickup);
                         interactObj.OnInteract();
 
                     } else {
                         //  object doesnt need anything
 
+                        SoundManager.PlaySound(SoundManager.Sound.itemUse);
                         interactObj.OnInteract();
                     }
                 }

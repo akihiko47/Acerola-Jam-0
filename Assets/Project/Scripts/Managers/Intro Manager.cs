@@ -7,10 +7,13 @@ using TMPro;
 public class IntroManager : MonoBehaviour {
 
     [SerializeField]
-    TMP_Text mainText;
+    private TMP_Text mainText;
 
     [SerializeField]
-    GameObject skipObject;
+    private GameObject skipObject;
+
+    [SerializeField]
+    private bool outro = false;
 
     private int currentText = 0;
 
@@ -40,9 +43,13 @@ public class IntroManager : MonoBehaviour {
             if (currentText < textMessagesArray.Length) {
                 SetCurrentText();
             } else {
-                LoadNextScene();
+                if (outro) {
+                    LoadMainMenu();
+                } else {
+                    LoadNextScene();
+                }
             }
-            
+
         }
     }
 
@@ -53,6 +60,10 @@ public class IntroManager : MonoBehaviour {
 
     private void LoadNextScene() {
         ScenesManager.Instance.LoadNextScene();
+    }
+
+    private void LoadMainMenu() {
+        ScenesManager.Instance.LoadMainMenu();
     }
 
     private void DeactivateSkipObject() {

@@ -13,6 +13,7 @@ public class GarageDoor : MonoBehaviour, IInteractable, IItemNeeder {
     private bool canInteract = true;
 
     public void OnInteract() {
+        SoundManager.PlaySound(SoundManager.Sound.doorOpen);
         playerFlashlight.SetWorking(false);
         playerFlashlight.HalfIntensity();
         doorVFX.Rotate(new Vector3(0f, -75f, 0f));

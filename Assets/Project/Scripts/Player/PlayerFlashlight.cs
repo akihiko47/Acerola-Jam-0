@@ -24,10 +24,15 @@ public class PlayerFlashlight : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetMouseButtonDown(0) && isWorking) {
-            flashlight.intensity += clickGain * Time.deltaTime;
-            if (flashlight.intensity > maxIntensity) {
-                flashlight.intensity = maxIntensity;
+        if (Input.GetMouseButtonDown(0)) {
+            if (isWorking) {
+                SoundManager.PlaySound(SoundManager.Sound.flashlightCharge);
+                flashlight.intensity += clickGain * Time.deltaTime;
+                if (flashlight.intensity > maxIntensity) {
+                    flashlight.intensity = maxIntensity;
+                }
+            } else {
+                SoundManager.PlaySound(SoundManager.Sound.flashlightBrokenCharge);
             }
         }
 
@@ -41,6 +46,9 @@ public class PlayerFlashlight : MonoBehaviour {
 
     public void SetWorking(bool state) {
         isWorking = state;
+        if (state == false) {
+            SoundManager.PlaySound(SoundManager.Sound.flashlightBreak);
+        }
     }
 
     public bool GetWorking() {

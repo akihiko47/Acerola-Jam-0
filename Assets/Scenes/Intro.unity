@@ -335,17 +335,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainText: {fileID: 421631776}
   skipObject: {fileID: 727999771}
+  outro: 0
   textMessagesArray:
   - message: Bye, sweetie
-    messageSound: 0
+    messageSound: 10
   - message: We'll be back by tomorrow morning
-    messageSound: 0
+    messageSound: 10
   - message: We know you're afraid of the dark, so we left the lights on
-    messageSound: 1
+    messageSound: 11
   - message: If anything happens, you always have a lamp next to your bed
-    messageSound: 1
+    messageSound: 11
   - message: Have a good night
-    messageSound: 0
+    messageSound: 10
 --- !u!1 &666486723
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,6 +45,7 @@ public class MusicManager : MonoBehaviour {
             musicAudioSource.clip = audioData.audioClip;
             musicAudioSource.volume = audioData.volume;
             musicAudioSource.pitch = audioData.pitch;
+            musicAudioSource.outputAudioMixerGroup = audioData.audioMixer;
 
             musicAudioSource.Play();
         } else {  // not first scene
@@ -54,6 +55,7 @@ public class MusicManager : MonoBehaviour {
                 musicAudioSource.clip = audioData.audioClip;
                 musicAudioSource.volume = audioData.volume;
                 musicAudioSource.pitch = audioData.pitch;
+                musicAudioSource.outputAudioMixerGroup = audioData.audioMixer;
                 musicAudioSource.Play();
 
                 prevSceneNumber = sceneNumber;

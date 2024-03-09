@@ -8,6 +8,7 @@ public class LightsManager : MonoBehaviour {
     GameObject lampsFolder;
 
     public void ActivateLights() {
+        SoundManager.PlaySound(SoundManager.Sound.lampsChangeState);
         foreach (Transform child in lampsFolder.transform) {
             Light light = child.GetChild(0).GetComponent<Light>();
             light.enabled = true;
@@ -15,6 +16,7 @@ public class LightsManager : MonoBehaviour {
     }
 
     public void DeactivateLights() {
+        SoundManager.PlaySound(SoundManager.Sound.lampsChangeState);
         foreach (Transform child in lampsFolder.transform) {
             Light light = child.GetChild(0).GetComponent<Light>();
             light.enabled = false;

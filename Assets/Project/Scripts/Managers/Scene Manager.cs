@@ -16,6 +16,7 @@ public class ScenesManager : MonoBehaviour {
         MainMenu,
         Intro,
         MainScene,
+        Outro,
     }
 
     private void Awake() {

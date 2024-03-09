@@ -49,39 +49,130 @@ MonoBehaviour:
   soundAudioClipArray:
   - sound: 0
     audioClip: {fileID: 8300000, guid: 697a09196396ea341a27809d85d75d5a, type: 3}
-    playDelay: 0.2
+    playDelay: 0.1
     audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
     volume: 1
     pitch: 1
     loop: 0
   - sound: 1
     audioClip: {fileID: 8300000, guid: 1052f9018f5e79946ae94f78a2609d0d, type: 3}
-    playDelay: 0.5
+    playDelay: 0.8
     audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
-    volume: 1
+    volume: 0.1
     pitch: 1
     loop: 0
   - sound: 2
     audioClip: {fileID: 8300000, guid: aa0ee064069d91040bf87205bfc133b6, type: 3}
     playDelay: 0
     audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
-    volume: 0.5
+    volume: 0.02
     pitch: 1
     loop: 0
   - sound: 3
-    audioClip: {fileID: 8300000, guid: 123fd15bd48cf314b8dd3e1b7ac01b43, type: 3}
+    audioClip: {fileID: 8300000, guid: e255377d885cf114abc18be6c1c0ec0a, type: 3}
     playDelay: 0
-    audioMixer: {fileID: 49775197578996511, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
     volume: 0.1
     pitch: 1
-    loop: 1
+    loop: 0
   - sound: 4
+    audioClip: {fileID: 8300000, guid: 4e49527fc438a024cb2ea53110fc6d3a, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+  - sound: 5
+    audioClip: {fileID: 8300000, guid: a9c8301269c16344fb9c1644ce34a20c, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+  - sound: 6
+    audioClip: {fileID: 8300000, guid: d9890091c2d62e5469031471e2f8b2fd, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - sound: 7
+    audioClip: {fileID: 8300000, guid: fafe0b22bf503054592db811e8dd8b17, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  - sound: 8
+    audioClip: {fileID: 8300000, guid: 56d1ae20fa794e343ba05f48a4a0a74f, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  - sound: 9
+    audioClip: {fileID: 8300000, guid: 15f3230273aa6a64cb16e75baa673ebb, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+  - sound: 10
+    audioClip: {fileID: 8300000, guid: f240f97a74c2d194ba5fbb0f844e6228, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+  - sound: 11
+    audioClip: {fileID: 8300000, guid: 5244a10b0783b174b85601397cf56040, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+  - sound: 12
+    audioClip: {fileID: 8300000, guid: 5244a10b0783b174b85601397cf56040, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+  - sound: 13
     audioClip: {fileID: 8300000, guid: 123fd15bd48cf314b8dd3e1b7ac01b43, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+  - sound: 14
+    audioClip: {fileID: 8300000, guid: 7297190fa3f70474e87b6548d3b94956, type: 3}
     playDelay: 0
     audioMixer: {fileID: 49775197578996511, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
     volume: 0.1
     pitch: 1
     loop: 1
+  - sound: 15
+    audioClip: {fileID: 8300000, guid: 309134d3670d9c643a22d3086e4e0e40, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: 49775197578996511, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+  - sound: 16
+    audioClip: {fileID: 8300000, guid: fd7fc9776b38dfb42ab72e267ccccf2e, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: 4293919854039215608, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.25
+    pitch: 1
+    loop: 1
+  - sound: 17
+    audioClip: {fileID: 8300000, guid: 74132081464a4044986a6f217dae8521, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 0.5
+    pitch: 1
+    loop: 0
 --- !u!114 &86646750305342800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6093b3e6ceec73419726d5defd0824d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicList: 030000000400000004000000
+  musicList: 0e0000000f000000100000000f000000
 --- !u!82 &4903789565277301324
 AudioSource:
   m_ObjectHideFlags: 0
