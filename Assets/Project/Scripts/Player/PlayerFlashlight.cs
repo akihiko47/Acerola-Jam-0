@@ -9,6 +9,9 @@ public class PlayerFlashlight : MonoBehaviour {
     private GameObject flashlightModel;
 
     [SerializeField]
+    private ParticleSystem flashlightSparks;
+
+    [SerializeField]
     private GameObject flashlightModelCopy;
 
     [SerializeField]
@@ -62,7 +65,10 @@ public class PlayerFlashlight : MonoBehaviour {
     public void SetWorking(bool state) {
         isWorking = state;
         if (state == false) {
+            flashlightSparks.Play();
             SoundManager.PlaySound(SoundManager.Sound.flashlightBreak);
+        } else {
+            flashlightSparks.Stop();
         }
     }
 

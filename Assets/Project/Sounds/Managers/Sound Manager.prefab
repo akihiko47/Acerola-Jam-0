@@ -100,14 +100,14 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: fafe0b22bf503054592db811e8dd8b17, type: 3}
     playDelay: 0
     audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
-    volume: 0.5
+    volume: 0.8
     pitch: 1
     loop: 0
   - sound: 8
     audioClip: {fileID: 8300000, guid: 56d1ae20fa794e343ba05f48a4a0a74f, type: 3}
     playDelay: 0
     audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
-    volume: 0.5
+    volume: 0.8
     pitch: 1
     loop: 0
   - sound: 9
