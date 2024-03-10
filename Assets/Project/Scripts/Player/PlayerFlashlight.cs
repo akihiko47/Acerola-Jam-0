@@ -12,6 +12,9 @@ public class PlayerFlashlight : MonoBehaviour {
     private ParticleSystem flashlightSparks;
 
     [SerializeField]
+    private SpriteRenderer lightHalo;
+
+    [SerializeField]
     private GameObject flashlightModelCopy;
 
     [SerializeField]
@@ -55,6 +58,7 @@ public class PlayerFlashlight : MonoBehaviour {
         }
 
         if (flashlight.intensity > 0) {
+            lightHalo.color = new Color(1f, 0.964f, 0.768f, (flashlight.intensity / maxIntensity));
             flashlight.intensity -= decreaseSpeed * Time.deltaTime;
             if (flashlight.intensity < 0f) {
                 flashlight.intensity = 0f;
