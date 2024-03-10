@@ -6,6 +6,15 @@ public class PlayerFlashlight : MonoBehaviour {
     private Light flashlight;
 
     [SerializeField]
+    private GameObject flashlightModel;
+
+    [SerializeField]
+    private GameObject flashlightModelCopy;
+
+    [SerializeField]
+    private Transform flashlightHandle;
+
+    [SerializeField]
     private float decreaseSpeed = 1f;
 
     [SerializeField]
@@ -20,12 +29,14 @@ public class PlayerFlashlight : MonoBehaviour {
 
 
     private void Start() {
+        flashlightModel.SetActive(false);
         maxIntensity = flashlight.intensity;
     }
 
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
             if (isWorking) {
+                flashlightHandle.localRotation = Quaternion.Euler(0f, 0f, 0f);
                 SoundManager.PlaySound(SoundManager.Sound.flashlightCharge);
                 flashlight.intensity += clickGain * Time.deltaTime;
                 if (flashlight.intensity > maxIntensity) {
@@ -34,6 +45,10 @@ public class PlayerFlashlight : MonoBehaviour {
             } else {
                 SoundManager.PlaySound(SoundManager.Sound.flashlightBrokenCharge);
             }
+        }
+
+        if (Input.GetMouseButtonUp(0)) {
+            flashlightHandle.localRotation = Quaternion.Euler(-30f, 0f, 0f);
         }
 
         if (flashlight.intensity > 0) {
@@ -57,5 +72,10 @@ public class PlayerFlashlight : MonoBehaviour {
 
     public void HalfIntensity() {
         flashlight.intensity *= 0.2f;
+    }
+
+    public void ConfigureFlashlightMovement() {
+        flashlightModel.SetActive(true);
+        flashlightModelCopy.SetActive(false);
     }
 }
