@@ -15,7 +15,7 @@ public class Batteries : MonoBehaviour, IInteractable, IPickAble, IItemNeeder {
     }
 
     public string GetMessage() {
-        return "I can pull batteries out of this thing, but i need a tool.";
+        return "My favorite toy! I think I can get the batteries out of this car, but I need a tool";
     }
 
     public Item GetNeededItem() {
