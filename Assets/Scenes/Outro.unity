@@ -341,11 +341,13 @@ MonoBehaviour:
     messageSound: 12
   - message: And met his parents
     messageSound: 12
-  - message: Sometimes your brain wants to trick you
+  - message: ...
     messageSound: 12
-  - message: But don't let it fool you
+  - message: It's normal to be afraid of something
     messageSound: 12
-  - message: Sometimes your fears are just...
+  - message: But don't let those fears overcome you
+    messageSound: 12
+  - message: Because sometimes they are just...
     messageSound: 12
   - message: ABERRATIONS
     messageSound: 2
