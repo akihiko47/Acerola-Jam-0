@@ -32,7 +32,11 @@ public class Lamp : MonoBehaviour, IInteractable, IItemNeeder {
     }
 
     public string GetMessage() {
-        return "Our lamp! But it's out of batteries :c";
+        if (lampLight.enabled) {
+            return "It's working! In case of something, I need to run here";
+        } else {
+            return "Our lamp! But it's out of batteries :c";
+        }
     }
 
     public Item GetNeededItem() {
