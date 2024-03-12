@@ -44,7 +44,7 @@ v2f vert(MeshData v) {
     v2f o;
     o.worldPos = mul(unity_ObjectToWorld, v.vertex);
 
-    //o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14159265359 / 100 * (o.worldPos.y - _PlayerY) * _Twist * sin(_Time.y / 10.0));
+    //o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14159265359 / 100 * (o.worldPos.y - _PlayerY) * 1.0 * sin(_Time.y / 10.0));
 
     o.pos = mul(UNITY_MATRIX_VP, float4(o.worldPos, 1));
     o.uv = v.uv;
