@@ -24,6 +24,7 @@ public static class SoundManager {
         musicIntro,
         musicMainScene,
         doorOpen,
+        monsterStep,
     }
 
     private static GameObject oneShotGameObject;
@@ -57,7 +58,7 @@ public static class SoundManager {
             audioSource.pitch = audioData.pitch;
             audioSource.loop = audioData.loop;
 
-            audioSource.maxDistance = 100f;
+            audioSource.maxDistance = 15f;
             audioSource.rolloffMode = AudioRolloffMode.Linear;
             audioSource.dopplerLevel = 0f;
             audioSource.spatialBlend = 1f;
