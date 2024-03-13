@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         ApplyGravity();
-        ConfigureTwist();
     }
 
     private void ConfigureInput() {
@@ -65,10 +64,6 @@ public class PlayerMovement : MonoBehaviour {
         controller.Move(move * speed * Time.deltaTime);
     }
 
-    private void ConfigureTwist() {
-        Shader.SetGlobalFloat("_PlayerY", transform.position.y);
-    }
-
     private void ApplyGravity() {
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
@@ -76,5 +71,13 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Jump() {
         velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+    }
+
+    public void DecreaseSpeed() {
+        speed *= 0.7f;
+    }
+
+    public void IncreaseSpeed() {
+        speed *= 1.4285f;
     }
 }

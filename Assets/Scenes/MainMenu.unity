@@ -4636,6 +4636,8 @@ MonoBehaviour:
   CreditsPanel: {fileID: 528631119}
   SettingsPanel: {fileID: 1533025098}
   masterMixer: {fileID: 24100000, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+  musicSlider: {fileID: 1033194009}
+  sfxSlider: {fileID: 1283297543}
 --- !u!1 &1533025098
 GameObject:
   m_ObjectHideFlags: 0

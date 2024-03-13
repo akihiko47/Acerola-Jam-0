@@ -25,6 +25,7 @@ public static class SoundManager {
         musicMainScene,
         doorOpen,
         monsterStep,
+        screamer,
     }
 
     private static GameObject oneShotGameObject;

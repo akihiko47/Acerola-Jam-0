@@ -7,9 +7,11 @@
 
 sampler2D _LightTex;
 sampler2D _ShadowTex;
-float4 _Color1, _Color2;
-float _Twist;
-uniform float _PlayerY;
+float4 _Color1, _Color2, _Emission;
+
+uniform float _PlayerPosX;
+uniform float _PlayerPosZ;
+uniform float _Twisting;
 
 struct MeshData {
     float4 vertex : POSITION;
@@ -44,7 +46,7 @@ v2f vert(MeshData v) {
     v2f o;
     o.worldPos = mul(unity_ObjectToWorld, v.vertex);
 
-    //o.worldPos = Unity_RotateAboutAxis_Radians_float(o.worldPos, float3(0.0, 1.0, 0.0), 3.14159265359 / 100 * (o.worldPos.y - _PlayerY) * 1.0 * sin(_Time.y / 10.0));
+    o.worldPos.y += (cos(_Time.y + o.worldPos.x)-1) * abs(o.worldPos.x - _PlayerPosX) * abs(o.worldPos.z - _PlayerPosZ) * 0.01 * _Twisting;
 
     o.pos = mul(UNITY_MATRIX_VP, float4(o.worldPos, 1));
     o.uv = v.uv;
@@ -79,6 +81,8 @@ float4 frag(v2f i) : SV_Target{
         //float3 color = _Color1 * shadowMask + _Color2 * (1- shadowMask);
 
         UNITY_APPLY_FOG(i.fogCoord, color);
+
+        color += _Emission;
 
         return float4(color, 1.0);
     #else

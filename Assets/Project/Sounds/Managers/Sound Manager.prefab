@@ -180,6 +180,13 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     loop: 0
+  - sound: 19
+    audioClip: {fileID: 8300000, guid: a74f30d558e47d845b6286e6118706ad, type: 3}
+    playDelay: 0
+    audioMixer: {fileID: -6692468778171527104, guid: 8107041e4232e98469d5d038d7c3bc10, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
 --- !u!114 &86646750305342800
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
 Shader "Custom/Level" {
 
     Properties{
-        _Twist ("Twist", float) = 0.2
+        _Emission ("Emission Color", Color) = (0.0, 0.0, 0.0, 0.0)
         _Color1 ("Color 1", Color) = (0.5, 0.5, 0.5, 1.0)
         _Color2 ("Color 2", Color) = (0.9, 0.9, 0.9, 1.0)
         [NoScaleOffset] _LightTex ("Main Texture", 2D) = "white" {}

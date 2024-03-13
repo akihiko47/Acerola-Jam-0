@@ -44,7 +44,7 @@ public class PlayerFlashlight : MonoBehaviour {
             if (isWorking) {
                 flashlightHandle.localRotation = Quaternion.Euler(0f, 0f, 0f);
                 SoundManager.PlaySound(SoundManager.Sound.flashlightCharge);
-                flashlight.intensity += clickGain * Time.deltaTime;
+                flashlight.intensity += clickGain;
                 if (flashlight.intensity > maxIntensity) {
                     flashlight.intensity = maxIntensity;
                 }

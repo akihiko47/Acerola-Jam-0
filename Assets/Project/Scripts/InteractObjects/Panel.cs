@@ -31,6 +31,9 @@ public class Panel : MonoBehaviour, IInteractable, IItemNeeder {
         postEffects.enabled = false;
         enemyManager.StopAttack();
         enemyManager.SetLightsOn(true);
+
+        TwistManager.Instance.EndTwist();
+        RenderSettings.fogDensity = 0.1f;
     }
 
     public bool IsInteractable() {
